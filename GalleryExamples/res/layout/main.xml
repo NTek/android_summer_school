@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/btnGallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnGallery" android:onClick="showGallery"/>
+
+    <Button
+        android:id="@+id/btnGridGallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnGridGallery" android:onClick="showGridGallery"/>
+
+    <Button
+        android:id="@+id/btnDevice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnDevice" android:onClick="showDeviceImages"/>
+
+    <Button
+        android:id="@+id/btnShowFromDB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnShowFromDB" android:onClick="showImagesFromDB"/>
+
+</LinearLayout>

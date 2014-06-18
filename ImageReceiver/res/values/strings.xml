@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">My IP address is:</string>
+    <string name="app_name">ImageReceiver</string>
+    <string name="btnStart">Start receiving image</string>
+    <string name="btnStop">Stop receiving image</string>
+    
+</resources>

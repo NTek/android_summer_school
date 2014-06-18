@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, ServicesExamplesActivity!</string>
+    <string name="app_name">ServicesExamples</string>
+    <string name="start_local">Start Local Service</string>
+    <string name="stop_local">Stop Local Service</string>
+    <string name="remote_bind">Bind to Remote Service</string>
+    <string name="remote_invoke">Invoke Remote Service Method</string>
+    <string name="remote_unbind">Unbind Remote Service</string>
+
+</resources>

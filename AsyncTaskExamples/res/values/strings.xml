@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, AsyncTaskExamplesActivity!</string>
+    <string name="app_name">AsyncTaskExamples</string>
+    <string name="thread">Thread</string>
+    <string name="async">AsyncTask</string>
+
+</resources>

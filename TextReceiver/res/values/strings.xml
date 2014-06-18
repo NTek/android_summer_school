@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, TextReceiverActivity!</string>
+    <string name="app_name">TextReceiver</string>
+    <string name="btnListen">Start listening</string>
+    <string name="btnStopListen">Stop listening</string>
+    
+</resources>

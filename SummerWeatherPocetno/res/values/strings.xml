@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Odaberite verziju</string>
+    <string name="app_name">SummerWeatherPocetno</string>
+    <string name="btnV1">Verzija 1</string>
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <resources>
+    <string name="table_open">Open...</string>
+    <string name="table_save">Save...</string>
+    <string name="table_save_as">Save As...</string>
+    <string name="table_import">Import...</string>
+    <string name="table_export">Export...</string>
+    <string name="table_quit">Quit</string>
+    <string name="table_x">X</string>
+    <string name="table_ctrl_o">Ctrl-O</string>
+    <string name="table_ctrl_s">Ctrl-S</string>
+    <string name="table_ctrl_shift_s">Ctrl-Shift-S</string>
+    <string name="table_ctrl_e">Ctrl-E</string>
+    </resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <resources>
+        <string name="linear_item1"> Stavka1</string>
+        <string name="linear_item2"> Stavka2 </string>
+        <string name="linear_item31"> Stavka31 </string>
+        <string name="linear_item32"> Stavka32 </string>
+        <string name="linear_item33"> Stavka33 </string>
+    </resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, DatabaseExampleActivity!</string>
+    <string name="app_name">DatabaseExample</string>
+    <string name="btnNotes">Notes demo</string>
+    <string name="btnBookmarks">Show bookmarks from DB</string>
+    <string name="btnContacts">Show history of calls from DB</string>
+    <string name="btnGallery">Show Image Gallery using DB</string>
+
+</resources>

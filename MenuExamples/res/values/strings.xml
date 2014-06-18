@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="context_menu_edit">Edit planet</string>
+    <string name="context_menu_delete">Delete planet</string>
+    <string name="options_menu_add">Add planet</string>
+    <string name="app_name">MenuExamples</string>
+    <string name="title_activity_edit_planet">Planet</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="txtViewName">Name:</string>
+    <string name="btnCancel">Cancel</string>
+    <string name="btnSave">Save</string>
+
+</resources>

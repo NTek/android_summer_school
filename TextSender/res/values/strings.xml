@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, TextSenderActivity!</string>
+    <string name="app_name">TextSender</string>
+    <string name="btnConnect">Connect</string>
+    <string name="btnDisconnect">Disconnect</string>
+    <string name="btnSend">Send</string>
+    <string name="editTextAddr">192.168.247.78</string>
+
+</resources>

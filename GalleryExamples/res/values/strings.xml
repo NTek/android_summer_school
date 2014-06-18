@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, GalleryExamplesActivity!</string>
+    <string name="app_name">GalleryExamples</string>
+    <string name="btnGallery">Show Gallery</string>
+    <string name="btnGridGallery">Show Grid Gallery</string>
+    <string name="btnDevice">Show Images on device</string>
+    <string name="btnShowFromDB">Show Images From Database</string>
+
+</resources>

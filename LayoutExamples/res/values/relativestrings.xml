@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <resources>
+        <string name="relative_choose">Choose one option:</string>
+        <string name="relative_option_left">Left</string>
+        <string name="relative_option_right">Right</string>
+        <string name="relative_option_center">Center</string>
+        <string name="relative_btnOk">Ok</string>
+        <string name="relative_btnCancel">Cancel</string>
+    </resources>

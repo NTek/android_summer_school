@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LayoutApp</string>
+    <string name="naslov">Layout primeri</string>
+    <string name="frame">Frame Layout</string>
+    <string name="linear">Linear Layout</string>
+    <string name="relative">Relative Layout</string>
+    <string name="table">Table Layout</string>
+    <string name="tab">Tab Layout</string>
+    
+</resources>

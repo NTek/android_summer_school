@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, CameraExampleActivity!</string>
+    <string name="app_name">CameraExample</string>
+    <string name="btnPreview">Custom Preview and Shoot</string>
+    <string name="btnSystemCamera">Use system camera application</string>
+
+</resources>

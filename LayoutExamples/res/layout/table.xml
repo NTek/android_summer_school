@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:stretchColumns="1">
+
+    <TableRow>
+
+        <TextView
+            android:layout_column="1"
+            android:padding="3dip"
+            android:text="@string/table_open" />
+
+        <TextView
+            android:gravity="right"
+            android:padding="3dip"
+            android:text="@string/table_ctrl_o" />
+
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_column="1"
+            android:padding="3dip"
+            android:text="@string/table_save" />
+
+        <TextView
+            android:gravity="right"
+            android:padding="3dip"
+            android:text="@string/table_ctrl_s" />
+
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_column="1"
+            android:padding="3dip"
+            android:text="@string/table_save_as" />
+
+        <TextView
+            android:gravity="right"
+            android:padding="3dip"
+            android:text="@string/table_ctrl_shift_s" />
+
+    </TableRow>
+
+    <View
+        android:layout_height="2dip"
+        android:background="#FF909090" />
+
+    <TableRow>
+
+        <TextView
+            android:padding="3dip"
+            android:text="@string/table_x" />
+
+        <TextView
+            android:padding="3dip"
+            android:text="@string/table_import" />
+
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:padding="3dip"
+            android:text="@string/table_x" />
+
+        <TextView
+            android:padding="3dip"
+            android:text="@string/table_export" />
+
+        <TextView
+            android:gravity="right"
+            android:padding="3dip"
+            android:text="@string/table_ctrl_e" />
+
+    </TableRow>
+
+    <View
+        android:layout_height="2dip"
+        android:background="#FF909090" />
+
+    <TableRow>
+
+        <TextView
+            android:layout_column="1"
+            android:padding="3dip"
+            android:text="@string/table_quit" />
+
+    </TableRow>
+</TableLayout>

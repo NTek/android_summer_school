@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    <TextView android:text="@string/choose_text" android:id="@+id/textView1" android:layout_height="wrap_content" android:layout_width="wrap_content"></TextView>
+    <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="@string/v1" android:id="@+id/btnV1"></Button>
+    <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/v2" android:id="@+id/btnV2"></Button>
+    <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/btnContacts" android:text="@string/sys"></Button>
+
+</LinearLayout>

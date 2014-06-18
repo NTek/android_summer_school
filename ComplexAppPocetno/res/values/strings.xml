@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ComplexApp</string>
+    <string name="choose_text">Odaberite verziju</string>
+    <string name="v1">Verzija 1</string>
+    <string name="v2">Verzija 2</string>
+    <string name="sys">Pozivanje sistemske aktivnosti</string>
+</resources>
