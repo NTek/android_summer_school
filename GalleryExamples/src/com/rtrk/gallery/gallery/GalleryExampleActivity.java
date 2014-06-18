@@ -1,7 +1,5 @@
 package com.rtrk.gallery.gallery;
 
-import com.rtrk.gallery.R;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +8,8 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.rtrk.gallery.R;
 
 public class GalleryExampleActivity extends Activity {
 	ImageView image;

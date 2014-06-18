@@ -7,5 +7,6 @@
     <string name="btnGridGallery">Show Grid Gallery</string>
     <string name="btnDevice">Show Images on device</string>
     <string name="btnShowFromDB">Show Images From Database</string>
+    <string name="btnShowViewPager">Show View Pager</string>
 
 </resources>

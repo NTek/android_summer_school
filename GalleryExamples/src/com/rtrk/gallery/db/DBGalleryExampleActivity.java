@@ -39,7 +39,7 @@ public class DBGalleryExampleActivity extends Activity {
 						"You have selected picture " + (index + 1), Toast.LENGTH_SHORT).show();
 				// Get the data location of the image
 				String[] cols = { MediaStore.Images.Media.DATA };
-				Cursor cursor = managedQuery(
+				Cursor cursor = getContentResolver().query(
 						MediaStore.Images.Media.EXTERNAL_CONTENT_URI, 
 						cols, // Which columns to return
 						null, // Return all rows

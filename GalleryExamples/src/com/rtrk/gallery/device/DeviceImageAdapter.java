@@ -1,13 +1,8 @@
 package com.rtrk.gallery.device;
 
-import java.io.File;
-
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.database.Cursor;
 import android.net.Uri;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -60,10 +55,10 @@ public class DeviceImageAdapter extends BaseAdapter {
 			iv.setLayoutParams(new Gallery.LayoutParams(250, 220));
 			// iv.setBackgroundResource(imageBackground);
 			iv.setBackgroundResource(android.R.drawable.alert_light_frame);
-			iv.setImageURI(urls[index]);
 		} else {
-			iv = (ImageView)oldView;
+			iv = (ImageView) oldView;
 		}
+		iv.setImageURI(urls[index]);
 		return iv;
 	}
 }

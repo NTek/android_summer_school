@@ -3,29 +3,40 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
-
+
     <Button
         android:id="@+id/btnGallery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btnGallery" android:onClick="showGallery"/>
-
+        android:onClick="showGallery"
+        android:text="@string/btnGallery" />
+
     <Button
         android:id="@+id/btnGridGallery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btnGridGallery" android:onClick="showGridGallery"/>
-
+        android:onClick="showGridGallery"
+        android:text="@string/btnGridGallery" />
+
     <Button
         android:id="@+id/btnDevice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btnDevice" android:onClick="showDeviceImages"/>
-
+        android:onClick="showDeviceImages"
+        android:text="@string/btnDevice" />
+
     <Button
         android:id="@+id/btnShowFromDB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btnShowFromDB" android:onClick="showImagesFromDB"/>
+        android:onClick="showImagesFromDB"
+        android:text="@string/btnShowFromDB" />
+
+    <Button
+        android:id="@+id/btnViewPager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="showViewPager"
+        android:text="@string/btnShowViewPager" />
 
 </LinearLayout>

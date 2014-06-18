@@ -9,6 +9,7 @@ import com.rtrk.gallery.db.DBGalleryExampleActivity;
 import com.rtrk.gallery.device.DeviceGalleryExampleActivity;
 import com.rtrk.gallery.gallery.GalleryExampleActivity;
 import com.rtrk.gallery.gridgallery.GridGalleryExampleActivity;
+import com.rtrk.gallery.viewpager.ViewPagerExampleActivity;
 
 public class GalleryExamplesActivity extends Activity {
 	
@@ -35,6 +36,11 @@ public class GalleryExamplesActivity extends Activity {
     }
     public void showImagesFromDB(View view) {
 		Intent i = new Intent(getApplicationContext(), DBGalleryExampleActivity.class);
+		startActivity(i); 		
+    }
+    
+    public void showViewPager(View view) {
+		Intent i = new Intent(getApplicationContext(), ViewPagerExampleActivity.class);
 		startActivity(i); 		
     }
 }

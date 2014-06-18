@@ -26,6 +26,7 @@
         <activity android:name=".gridgallery.GridGalleryExampleActivity" />
         <activity android:name=".device.DeviceGalleryExampleActivity" />
         <activity android:name=".db.DBGalleryExampleActivity" />
+        <activity android:name=".viewpager.ViewPagerExampleActivity" />
         
     </application>
 
