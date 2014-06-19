@@ -3,8 +3,7 @@
     android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-
+    android:orientation="vertical">
     <TextView
         android:id="@+id/textVolume"
         android:layout_width="wrap_content"
@@ -14,8 +13,7 @@
         android:layout_marginRight="28dp"
         android:gravity="center"
         android:height="10mm"
-        android:text="Volume" />
-
+        android:text="Volume"/>
     <TextView
         android:id="@+id/textName"
         android:layout_width="wrap_content"
@@ -25,6 +23,5 @@
         android:layout_marginLeft="24dp"
         android:gravity="center"
         android:height="10mm"
-        android:text="Name" />
-
+        android:text="Name"/>
 </RelativeLayout>

@@ -1,7 +1,5 @@
 package com.rtrk.complexlist;
 
-import java.util.List;
-
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,49 +10,57 @@ import android.widget.TextView;
 
 import com.rtrk.R;
 
+import java.util.List;
+
 public class PlanetsAdapter extends ArrayAdapter<Planet> {
+    private Context mContext = null;
+    private int mTextViewResourceId = 0;
+    private List<Planet> mPlanets = null;
 
-	Context context;
-	int textViewResourceId;
-	List<Planet> planets;
+    public PlanetsAdapter(Context context, int textViewResourceId,
+            List<Planet> planets) {
+        super(context, textViewResourceId, planets);
+        mContext = context;
+        mTextViewResourceId = textViewResourceId;
+        mPlanets = planets;
+    }
 
-	public PlanetsAdapter(Context context, int textViewResourceId,
-			List<Planet> planets) {
-		super(context, textViewResourceId, planets);
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        PlanetHolder holder = null;
+        if (convertView == null) {
+            LayoutInflater inflater = ((Activity) mContext).getLayoutInflater();
+            convertView = inflater.inflate(mTextViewResourceId, parent, false);
+            holder = new PlanetHolder(convertView);
+            convertView.setTag(holder);
+        } else {
+            holder = (PlanetHolder) convertView.getTag();
+        }
+        updateView(holder, position);
+        return convertView;
+    }
 
-		this.context = context;
-		this.textViewResourceId = textViewResourceId;
-		this.planets = planets;
-	}
+    private void updateView(PlanetHolder holder, int position) {
+        Planet planet = mPlanets.get(position);
+        holder.getName().setText(planet.getName());
+        holder.getVolume().setText(planet.getVolume());
+    }
 
-	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
-		View row = convertView;
-		PlanetHolder holder = null;
+    private class PlanetHolder {
+        private TextView mName = null;
+        private TextView mVolume = null;
 
-		if (row == null) {
-			LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-			row = inflater.inflate(textViewResourceId, parent, false);
+        public PlanetHolder(View rootView) {
+            mName = (TextView) rootView.findViewById(R.id.textName);
+            mVolume = (TextView) rootView.findViewById(R.id.textVolume);
+        }
 
-			holder = new PlanetHolder();
-			holder.txtViewName = (TextView) row.findViewById(R.id.textName);
-			holder.txtViewVolume = (TextView) row.findViewById(R.id.textVolume);
+        public TextView getName() {
+            return mName;
+        }
 
-			row.setTag(holder);
-		} else {
-			holder = (PlanetHolder) row.getTag();
-		}
-
-		Planet planet = planets.get(position);
-		holder.txtViewName.setText(planet.getName());
-		holder.txtViewVolume.setText(planet.getVolume());
-
-		return row;
-	}
-
-	class PlanetHolder {
-		TextView txtViewName;
-		TextView txtViewVolume;
-	}
-
+        public TextView getVolume() {
+            return mVolume;
+        }
+    }
 }
