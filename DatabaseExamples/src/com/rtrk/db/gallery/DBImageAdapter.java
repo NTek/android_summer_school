@@ -29,18 +29,18 @@ public class DBImageAdapter extends BaseAdapter {
 				R.styleable.HelloGallery_android_galleryItemBackground, 1);
 		ta.recycle();
 
-		// Set up an array of the Thumbnail Image ID column we want
+		// Set up an array of the Media Image ID column we want
 		String[] columns = { MediaStore.Images.Thumbnails._ID };
 		// Create the cursor pointing to the SDCard
-		cursor = activity.managedQuery(
-				MediaStore.Images.Thumbnails.EXTERNAL_CONTENT_URI, 
+		cursor = activity.getContentResolver().query(
+				MediaStore.Images.Media.EXTERNAL_CONTENT_URI, 
 				columns, // Which columns to return
 				null, // Return all rows
 				null, 
-				MediaStore.Images.Thumbnails.IMAGE_ID);
-		// Get the column index of the Thumbnails Image ID
+				MediaStore.Images.Media.TITLE);
+		// Get the column index of the Media Image ID
 		columnIndex = cursor
-				.getColumnIndexOrThrow(MediaStore.Images.Thumbnails._ID);
+				.getColumnIndexOrThrow(MediaStore.Images.Media._ID);
 	}
 
 	@Override
@@ -77,7 +77,7 @@ public class DBImageAdapter extends BaseAdapter {
 			int imageID = cursor.getInt(columnIndex);
 			// Set the content of the image based on the provided URI
 			iv.setImageURI(Uri.withAppendedPath(
-					MediaStore.Images.Thumbnails.EXTERNAL_CONTENT_URI, "" + imageID));
+					MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "" + imageID));
 		} else {
 			iv = (ImageView) oldView;
 		}
