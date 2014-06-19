@@ -34,15 +34,8 @@ public class CameraPreviewActivity extends Activity implements
 
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
-
 		Log.e(TAG, "onCreate");
-
-		getWindow().setFormat(PixelFormat.TRANSLUCENT);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.preview);
-		
 		mSurfaceView = (SurfaceView) findViewById(com.rtrk.camera.R.id.surface_camera);
 		mSurfaceView.setOnClickListener(this);
 		mSurfaceHolder = mSurfaceView.getHolder();
