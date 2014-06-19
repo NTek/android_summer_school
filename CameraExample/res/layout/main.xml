@@ -2,24 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
-
+    android:orientation="vertical">
     <Button
         android:id="@+id/btnSystemCamera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btnSystemCamera" android:onClick="useSystemCamera"/>
-
+        android:onClick="useSystemCamera"
+        android:text="@string/btnSystemCamera"/>
     <Button
         android:id="@+id/btnPreview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btnPreview" android:onClick="showPreview"/>
-
+        android:onClick="useCustomCamera"
+        android:text="@string/btnPreview"/>
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_launcher" android:layout_weight="0.5"/>
-	
+        android:layout_weight="0.5"
+        android:src="@drawable/ic_launcher"/>
 </LinearLayout>

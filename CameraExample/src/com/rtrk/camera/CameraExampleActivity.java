@@ -1,80 +1,71 @@
 package com.rtrk.camera;
 
-import java.io.File;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import java.io.File;
+import java.io.IOException;
+
+/**
+ * Camera Examples.
+ */
 public class CameraExampleActivity extends Activity {
-	private static final String TAG = "CameraExampleActivity";
-	ImageView imageView;
+    private static final String TAG = "CameraExampleActivity";
+    /** Request and Result Codes. */
+    private static final int REQUEST_CODE_DEFAULT_CAMERA = 0;
+    public static final int REQUEST_CODE_CUSTOM_CAMERA = 1;
+    public static final int RESULT_CODE_CUSTOM_CAMERA = 2;
+    /** Image Path, Name and Type. */
+    public static final String IMAGE_PATH = "/sdcard/";
+    public static final String IMAGE_NAME = "image";
+    public static final String IMAGE_TYPE = ".jpg";
+    private ImageView mImageView = null;
 
-	public void onCreate(Bundle icicle) {
-		super.onCreate(icicle);
-		setContentView(R.layout.main);
+    public void onCreate(Bundle icicle) {
+        super.onCreate(icicle);
+        setContentView(R.layout.main);
+        mImageView = (ImageView) findViewById(R.id.imageView);
+    }
 
-		imageView = (ImageView) findViewById(R.id.imageView1);
-	}
+    /** Start Default Android Camera Application. */
+    public void useSystemCamera(View view) {
+        File photoFile = null;
+        try {
+            photoFile = File.createTempFile(IMAGE_NAME, /** Prefix. */
+            IMAGE_TYPE, /** Suffix. */
+            new File(IMAGE_PATH) /** Directory. */
+            );
+        } catch (IOException e) {
+            Log.e(TAG, "There was an error in creating file loaction!", e);
+        }
+        if (photoFile != null) {
+            Intent lIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            lIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photoFile));
+            startActivityForResult(lIntent, REQUEST_CODE_DEFAULT_CAMERA);
+        }
+    }
 
-	// public void useSystemCamera(View view) {
-	// Intent cameraIntent = new Intent(
-	// android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-	// startActivityForResult(cameraIntent, 124);
-	// }
+    /** Start Custom Android Camera Activity. */
+    public void useCustomCamera(View view) {
+        Intent i = new Intent(getApplicationContext(),
+                CameraPreviewActivity.class);
+        startActivityForResult(i, REQUEST_CODE_CUSTOM_CAMERA);
+    }
 
-	public void useSystemCamera(View view) {
-		File photoFile = null;
-		try {
-			photoFile = File.createTempFile("image", /* prefix */
-					".jpg", /* suffix */
-					new File("/sdcard/") /* directory */
-			);
-		} catch (IOException e) {
-			Log.e(TAG, "There was an error in creating file loaction!", e);
-		}
-		if (photoFile != null) {
-			Intent lIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-			lIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photoFile));
-			startActivityForResult(lIntent, 124);
-		}
-
-	}
-
-	public void showPreview(View view) {
-		Intent i = new Intent(getApplicationContext(),
-				CameraPreviewActivity.class);
-		startActivityForResult(i, 123);
-	}
-
-	@Override
-	public void onRestart() {
-		super.onRestart();
-		// imageView.setImageURI(Uri.parse("/sdcard/image.jpg"));
-	}
-
-	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-		if (requestCode == 123 && resultCode == 321) {
-			imageView.setImageURI(Uri.parse("/sdcard/image.jpg"));
-		}
-		if (requestCode == 124) {
-			imageView.setImageURI(Uri.parse("/sdcard/image.jpg"));
-			// if (intent != null && intent.getExtras() != null) {
-			// Bitmap photo = (Bitmap) intent.getExtras().get("data");
-			// if (photo != null)
-			// imageView.setImageBitmap(photo);
-			// }
-		}
-	}
-
+    /** Show Captured Image. */
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        Uri lImageLoction = Uri.parse(IMAGE_PATH + IMAGE_NAME + IMAGE_TYPE);
+        if (requestCode == REQUEST_CODE_CUSTOM_CAMERA
+                && resultCode == RESULT_CODE_CUSTOM_CAMERA) {
+            mImageView.setImageURI(lImageLoction);
+        } else if (requestCode == REQUEST_CODE_DEFAULT_CAMERA) {
+            mImageView.setImageURI(lImageLoction);
+        }
+    }
 }
