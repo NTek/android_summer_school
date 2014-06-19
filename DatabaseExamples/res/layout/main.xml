@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/btnNotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="showNotesDemo"
+        android:text="@string/btnNotes" />
+
+    <Button
+        android:id="@+id/btnBookmarks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="showBookmarks"
+        android:text="@string/btnBookmarks" />
+
+    <Button
+        android:id="@+id/btnContacts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="showCallHistory"
+        android:text="@string/btnContacts" />
+
+    <Button
+        android:id="@+id/btnGallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="showGallery"
+        android:text="@string/btnGallery" />
+
+    <Button
+        android:id="@+id/btnContentProvider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="showContentProvider"
+        android:text="@string/btnContentProvider" />
+
+</LinearLayout>
