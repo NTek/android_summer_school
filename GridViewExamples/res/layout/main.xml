@@ -2,18 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
-
+    android:orientation="vertical">
     <TextView
+        android:id="@+id/txtSelected"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello" android:id="@+id/txtSelected"/>
-
+        android:text="@string/hello"/>
     <GridView
-        android:id="@+id/gridView1"
+        android:id="@+id/gridView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:numColumns="3" >
+        android:numColumns="3">
     </GridView>
-
 </LinearLayout>

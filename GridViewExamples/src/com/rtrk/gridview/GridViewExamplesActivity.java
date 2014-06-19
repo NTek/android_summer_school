@@ -10,38 +10,27 @@ import android.widget.GridView;
 import android.widget.TextView;
 
 public class GridViewExamplesActivity extends Activity {
-	
-	private static final String[] PLANETS = new String[] {
-	       "Mercury", "Venus", "Mars", "Jupiter", "Saturn",
-	       "Uranus", "Neptune", "Pluto", "Krypton"
-	  };
-	
-	TextView txtSelected;
-	
+    private static final String[] PLANETS = new String[] { "Mercury", "Venus",
+            "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto",
+            "Krypton" };
+    private TextView mTextView = null;
+
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        
-        txtSelected = (TextView) findViewById(R.id.txtSelected);
-
-		GridView gv = (GridView) findViewById(R.id.gridView1);
-
-		ArrayAdapter<String> aa = new ArrayAdapter<String>(
-				this,
-				android.R.layout.simple_list_item_1, 
-				PLANETS);
-
-		gv.setAdapter(aa);
-		gv.setOnItemClickListener(new OnItemClickListener() {
-
-			@Override
-			public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-				txtSelected.setText("Selected: " + PLANETS[position]);
-			}
-			
-		});
-        
+        mTextView = (TextView) findViewById(R.id.txtSelected);
+        GridView gv = (GridView) findViewById(R.id.gridView);
+        ArrayAdapter<String> aa = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, PLANETS);
+        gv.setAdapter(aa);
+        gv.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View v,
+                    int position, long id) {
+                mTextView.setText("Selected: " + PLANETS[position]);
+            }
+        });
     }
 }
