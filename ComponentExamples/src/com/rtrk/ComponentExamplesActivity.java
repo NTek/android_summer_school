@@ -16,28 +16,21 @@ public class ComponentExamplesActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        
-        Button btnForm = (Button)findViewById(R.id.btnForm);
+        Button btnForm = (Button) findViewById(R.id.btnForm);
         btnForm.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				Intent i = new Intent(ComponentExamplesActivity.this, FormInputExamplesActivity.class);
-				startActivity(i); 		
-			}
-		});
-        
-        
-        Button btnBig = (Button)findViewById(R.id.btnText);
+            public void onClick(View v) {
+                Intent i = new Intent(ComponentExamplesActivity.this,
+                        FormInputExamplesActivity.class);
+                startActivity(i);
+            }
+        });
+        Button btnBig = (Button) findViewById(R.id.btnText);
         btnBig.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				Intent i = new Intent(ComponentExamplesActivity.this, TextInputExamplesActivity.class);
-				startActivity(i); 		
-			}
-		});
-        
+            public void onClick(View v) {
+                Intent i = new Intent(ComponentExamplesActivity.this,
+                        TextInputExamplesActivity.class);
+                startActivity(i);
+            }
+        });
     }
-    
-    
-   
-	
-    
 }
