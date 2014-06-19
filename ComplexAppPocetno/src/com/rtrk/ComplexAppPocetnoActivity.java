@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 
 import com.rtrk.v1.ComplexAppActivity1;
@@ -16,32 +17,32 @@ public class ComplexAppPocetnoActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-
-        Button btnV1 = (Button)findViewById(R.id.btnV1);
-        btnV1.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent i = new Intent(ComplexAppPocetnoActivity.this, ComplexAppActivity1.class);
-				startActivity(i);
-			}
-		});
-        Button btnV2 = (Button)findViewById(R.id.btnV2);
-        btnV2.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent i = new Intent(ComplexAppPocetnoActivity.this, ComplexAppActivity2.class);
-				startActivity(i);
-			}
-		});
-
-        Button btnContacts = (Button)findViewById(R.id.btnContacts);
-        btnContacts.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("content://contacts/people/"));
-				startActivity(i);
-			}
-		});
-
+        Button btnV1 = (Button) findViewById(R.id.btnV1);
+        btnV1.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ComplexAppPocetnoActivity.this,
+                        ComplexAppActivity1.class);
+                startActivity(i);
+            }
+        });
+        Button btnV2 = (Button) findViewById(R.id.btnV2);
+        btnV2.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ComplexAppPocetnoActivity.this,
+                        ComplexAppActivity2.class);
+                startActivity(i);
+            }
+        });
+        Button btnContacts = (Button) findViewById(R.id.btnContacts);
+        btnContacts.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri
+                        .parse("content://contacts/people/"));
+                startActivity(i);
+            }
+        });
     }
 }
