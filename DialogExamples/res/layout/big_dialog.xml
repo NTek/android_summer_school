@@ -2,32 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
-
+    android:orientation="vertical">
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/dialog_big_caption" />
-
+        android:text="@string/dialog_big_caption"/>
     <TextView
-        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/dialog_big_enter_name" />
-
+        android:text="@string/dialog_big_enter_name"/>
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/edittext"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <requestFocus />
+        android:layout_height="wrap_content">
+        <requestFocus/>
     </EditText>
-
     <Button
         android:id="@+id/btnDialogBigClose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/dialog_big_btnClose" />
-    
+        android:text="@string/dialog_big_btnClose"/>
 </LinearLayout>

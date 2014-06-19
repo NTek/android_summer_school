@@ -11,24 +11,20 @@ import android.widget.Toast;
 import com.rtrk.gallery.R;
 
 public class GridGalleryExampleActivity extends Activity {
-	GridView gridView;
-
-	/** Called when the activity is first created. */
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.grid);
-
-		GridView gridView = (GridView) findViewById(R.id.gridview);
-		gridView.setAdapter(new GridAdapter(this));
-
-		gridView.setOnItemClickListener(new OnItemClickListener() {
-			public void onItemClick(AdapterView<?> parent, View v,
-					int position, long id) {
-				Toast.makeText(getBaseContext(),
-						"pic" + (position + 1) + " selected",
-						Toast.LENGTH_SHORT).show();
-			}
-		});
-	}
+    /** Called when the activity is first created. */
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.grid);
+        GridView lGridView = (GridView) findViewById(R.id.gridview);
+        lGridView.setAdapter(new GridAdapter(this));
+        lGridView.setOnItemClickListener(new OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View v,
+                    int position, long id) {
+                Toast.makeText(getBaseContext(),
+                        "pic" + (position + 1) + " selected",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 }

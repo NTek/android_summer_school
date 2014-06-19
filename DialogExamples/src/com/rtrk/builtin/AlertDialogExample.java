@@ -8,34 +8,30 @@ import android.content.DialogInterface;
 import android.widget.Toast;
 
 public class AlertDialogExample extends Dialog {
-	Context context;
-	public Dialog dialog;
-	public AlertDialogExample(Activity act) {
-		super((Context)act);
-		this.context = (Context)act;
-		AlertDialog.Builder builder = new AlertDialog.Builder(act);
-		builder.setMessage(
-				"Are you sure you want to DELETE city Novi Sad?")
-				.setCancelable(false)
-				.setPositiveButton("Yes",
-						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog,
-									int id) {
-								Toast.makeText(
-										AlertDialogExample.this.context,
-										"DELETING city Novi Sad..."
-										, Toast.LENGTH_LONG)
-											.show();
-							}
-						})
-				.setNegativeButton("No",
-						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog,
-									int id) {
-								dialog.cancel();
-							}
-						});
-		dialog = builder.create();
-	}
+    public Dialog mDialog = null;
 
+    public AlertDialogExample(final Activity activity) {
+        super((Context) activity);
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        builder.setMessage("Are you sure you want to DELETE city Novi Sad?")
+                .setCancelable(false)
+                .setPositiveButton("Yes",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Toast.makeText(activity,
+                                        "DELETING city Novi Sad...",
+                                        Toast.LENGTH_LONG).show();
+                            }
+                        })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        mDialog = builder.create();
+    }
+
+    public Dialog getDialog() {
+        return mDialog;
+    }
 }

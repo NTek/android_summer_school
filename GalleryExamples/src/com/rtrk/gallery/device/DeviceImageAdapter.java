@@ -12,53 +12,42 @@ import android.widget.ImageView;
 import com.rtrk.gallery.R;
 
 public class DeviceImageAdapter extends BaseAdapter {
-	private Context ctx;
-	private Uri[] urls;
+    private Context mContext = null;
+    private Uri[] mUrls = null;
 
-	int imageBackground;
+    public DeviceImageAdapter(Context context, Uri[] urls) {
+        mContext = context;
+        this.mUrls = urls;
+    }
 
-	public DeviceImageAdapter(Context context, Uri[] urls) {
-		ctx = context;
-		this.urls = urls;
+    @Override
+    public int getCount() {
+        return mUrls.length;
+    }
 
-		TypedArray ta = context
-				.obtainStyledAttributes(R.styleable.HelloGallery);
-		imageBackground = ta.getResourceId(
-				R.styleable.HelloGallery_android_galleryItemBackground, 1);
-		ta.recycle();
-	}
+    @Override
+    public Object getItem(int index) {
+        return index;
+    }
 
-	@Override
-	public int getCount() {
-		return urls.length;
-	}
+    @Override
+    public long getItemId(int id) {
+        return id;
+    }
 
-	@Override
-	public Object getItem(int arg0) {
-
-		return arg0;
-	}
-
-	@Override
-	public long getItemId(int arg0) {
-
-		return arg0;
-	}
-
-	@Override
-	public View getView(int index, View oldView, ViewGroup arg2) {
-		System.gc();
-		ImageView iv;
-		if (oldView == null) {
-			iv = new ImageView(ctx);
-			iv.setScaleType(ImageView.ScaleType.FIT_XY);
-			iv.setLayoutParams(new Gallery.LayoutParams(250, 220));
-			// iv.setBackgroundResource(imageBackground);
-			iv.setBackgroundResource(android.R.drawable.alert_light_frame);
-		} else {
-			iv = (ImageView) oldView;
-		}
-		iv.setImageURI(urls[index]);
-		return iv;
-	}
+    @Override
+    public View getView(int index, View oldView, ViewGroup arg2) {
+        ImageView lImageView;
+        if (oldView == null) {
+            lImageView = new ImageView(mContext);
+            lImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            lImageView.setLayoutParams(new Gallery.LayoutParams(250, 220));
+            lImageView
+                    .setBackgroundResource(android.R.drawable.alert_light_frame);
+        } else {
+            lImageView = (ImageView) oldView;
+        }
+        lImageView.setImageURI(mUrls[index]);
+        return lImageView;
+    }
 }

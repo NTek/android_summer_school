@@ -14,70 +14,63 @@ import android.widget.ImageView;
 import com.rtrk.gallery.R;
 
 public class DBImageAdapter extends BaseAdapter {
-	private Activity activity;
-	private Cursor cursor;
-	int columnIndex;
+    private Activity mActivity = null;
+    private Cursor mCursor = null;
+    private int mColumnIndex = 0;
+    private int mImageBackground = 0;
 
-	int imageBackground;
+    public DBImageAdapter(Activity activity) {
+        this.mActivity = activity;
+        TypedArray ta = activity
+                .obtainStyledAttributes(R.styleable.HelloGallery);
+        mImageBackground = ta.getResourceId(
+                R.styleable.HelloGallery_android_galleryItemBackground, 1);
+        ta.recycle();
+        /** Set up an array of the Media Image ID column we want. */
+        String[] columns = { MediaStore.Images.Media._ID };
+        /** Create the cursor pointing to the SDCard. */
+        mCursor = activity.getContentResolver().query(
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI, columns, null,
+                null, MediaStore.Images.Media.TITLE);
+        /** Get the column index of the Media Image ID. */
+        mColumnIndex = mCursor
+                .getColumnIndexOrThrow(MediaStore.Images.Media._ID);
+    }
 
-	public DBImageAdapter(Activity activity) {
-		this.activity = activity;
+    @Override
+    public int getCount() {
+        return mCursor.getCount();
+    }
 
-		TypedArray ta = activity
-				.obtainStyledAttributes(R.styleable.HelloGallery);
-		imageBackground = ta.getResourceId(
-				R.styleable.HelloGallery_android_galleryItemBackground, 1);
-		ta.recycle();
+    @Override
+    public Object getItem(int index) {
+        return index;
+    }
 
-		// Set up an array of the Media Image ID column we want
-		String[] columns = { MediaStore.Images.Media._ID };
-		// Create the cursor pointing to the SDCard
-		cursor = activity.getContentResolver().query(
-				MediaStore.Images.Media.EXTERNAL_CONTENT_URI, 
-				columns, // Which columns to return
-				null, // Return all rows
-				null, MediaStore.Images.Media.TITLE);
-		// Get the column index of the Media Image ID
-		columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media._ID);
-	}
+    @Override
+    public long getItemId(int id) {
+        return id;
+    }
 
-	@Override
-	public int getCount() {
-		return cursor.getCount();
-	}
-
-	@Override
-	public Object getItem(int arg0) {
-
-		return arg0;
-	}
-
-	@Override
-	public long getItemId(int arg0) {
-
-		return arg0;
-	}
-
-	@Override
-	public View getView(int index, View oldView, ViewGroup arg2) {
-		System.gc();
-		ImageView iv;
-		if (oldView == null) {
-			iv = new ImageView(activity);
-			iv.setScaleType(ImageView.ScaleType.FIT_XY);
-			iv.setLayoutParams(new Gallery.LayoutParams(250, 220));
-			// iv.setBackgroundResource(imageBackground);
-			iv.setBackgroundResource(android.R.drawable.alert_light_frame);
-		} else {
-			iv = (ImageView) oldView;
-		}
-		// Move cursor to current position
-		cursor.moveToPosition(index);
-		// Get the current value for the requested column
-		int imageID = cursor.getInt(columnIndex);
-		// Set the content of the image based on the provided URI
-		iv.setImageURI(Uri.withAppendedPath(
-				MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "" + imageID));
-		return iv;
-	}
+    @Override
+    public View getView(int index, View oldView, ViewGroup arg2) {
+        ImageView lImageView;
+        if (oldView == null) {
+            lImageView = new ImageView(mActivity);
+            lImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            lImageView.setLayoutParams(new Gallery.LayoutParams(250, 220));
+            lImageView
+                    .setBackgroundResource(android.R.drawable.alert_light_frame);
+        } else {
+            lImageView = (ImageView) oldView;
+        }
+        /** Move cursor to current position. */
+        mCursor.moveToPosition(index);
+        /** Get the current value for the requested column. */
+        int imageID = mCursor.getInt(mColumnIndex);
+        /** Set the content of the image based on the provided URI. */
+        lImageView.setImageURI(Uri.withAppendedPath(
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "" + imageID));
+        return lImageView;
+    }
 }
