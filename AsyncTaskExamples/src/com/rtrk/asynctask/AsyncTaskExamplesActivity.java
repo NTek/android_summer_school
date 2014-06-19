@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+/**
+ * AsyncTask Example.
+ */
 public class AsyncTaskExamplesActivity extends Activity {
     /** Fields. */
     private ProgressBar mBar = null;;
