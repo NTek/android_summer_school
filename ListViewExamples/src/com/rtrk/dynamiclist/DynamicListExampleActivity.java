@@ -12,40 +12,32 @@ import android.widget.Toast;
 import com.rtrk.R;
 
 public class DynamicListExampleActivity extends ListActivity {
+    private ArrayList<String> mPlanets = null;
 
-	ArrayList<String> planets; 
-	
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dynamic_list);
-        
-        planets = new ArrayList<String>(); 
-       
-        planets.add("Mercury");
-        planets.add("Venus");
-        planets.add("Mars");
-        planets.add("Jupiter");
-        planets.add("Saturn");
-        planets.add("Uranus");
-        planets.add("Neptune");
-        planets.add("Pluto");
-        planets.add("Krypton");
-        
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-        		this, android.R.layout.simple_list_item_1, planets);
-        
+        mPlanets = new ArrayList<String>();
+        mPlanets.add("Mercury");
+        mPlanets.add("Venus");
+        mPlanets.add("Mars");
+        mPlanets.add("Jupiter");
+        mPlanets.add("Saturn");
+        mPlanets.add("Uranus");
+        mPlanets.add("Neptune");
+        mPlanets.add("Pluto");
+        mPlanets.add("Krypton");
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, mPlanets);
         setListAdapter(adapter);
-        
     }
-    
+
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-    	Toast.makeText(getApplicationContext(), "SELECTED PLANET " + planets.get(position), Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),
+                "SELECTED PLANET " + mPlanets.get(position), Toast.LENGTH_LONG)
+                .show();
     }
 }
-
-
-
-

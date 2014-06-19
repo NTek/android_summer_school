@@ -13,12 +13,10 @@ public class StaticListExampleActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.static_list);
-        
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-        		this, R.array.planets_array, android.R.layout.simple_list_item_1);
-        
-        ListView lv = (ListView)findViewById(R.id.listView1);
-        lv.setAdapter(adapter);
-        
+                this, R.array.planets_array,
+                android.R.layout.simple_list_item_1);
+        ListView lListView = (ListView) findViewById(R.id.listView);
+        lListView.setAdapter(adapter);
     }
 }
