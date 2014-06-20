@@ -2,36 +2,35 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
-
+    android:orientation="vertical">
     <Button
         android:id="@+id/btnStartLocal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/start_local" android:onClick="startLocal"/>
-
+        android:onClick="startLocal"
+        android:text="@string/start_local"/>
     <Button
         android:id="@+id/btnStopLocal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/stop_local" android:onClick="stopLocal"/>
-
+        android:onClick="stopLocal"
+        android:text="@string/stop_local"/>
     <Button
         android:id="@+id/btnBindRemote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/remote_bind" android:onClick="bindRemote"/>
-
+        android:onClick="bindRemote"
+        android:text="@string/remote_bind"/>
     <Button
         android:id="@+id/btnInvoke"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/remote_invoke" android:onClick="invokeRemote"/>
-
+        android:onClick="invokeRemote"
+        android:text="@string/remote_invoke"/>
     <Button
         android:id="@+id/btnUnbindRemote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/remote_unbind" android:onClick="unbindRemote"/>
-
+        android:onClick="unbindRemote"
+        android:text="@string/remote_unbind"/>
 </LinearLayout>

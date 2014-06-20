@@ -19,94 +19,88 @@ import com.rtrk.service.remote.ICallback;
 import com.rtrk.service.remote.IRemoteServiceExample;
 
 public class ServicesExamplesActivity extends Activity {
+    public static final String TAG = "ServicesExamplesActivity";
+    private IRemoteServiceExample mService = null;
+    private BinderServiceConnection mConn = null;
+    private Handler mHandler = new Handler();
+    private Intent mLocalServiceIntent = null;
+    private Intent mRemoteServiceIntent = null;
 
-	public static final String TAG = "ServicesExamplesActivity";
-	private IRemoteServiceExample service = null;
-	private BinderServiceConnection conn = null;
+    /** Called when the activity is first created. */
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        mLocalServiceIntent = new Intent(getApplicationContext(),
+                LocalServiceExample.class);
+        mRemoteServiceIntent = new Intent(
+                "com.rtrk.service.remote.REMOTE_SERVICE");
+    }
 
-	Intent localServiceIntent;
-	Intent remoteServiceIntent;
+    public void startLocal(View view) {
+        Log.d(TAG, "startLocalService");
+        startService(mLocalServiceIntent);
+    }
 
-	/** Called when the activity is first created. */
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
-		localServiceIntent = new Intent(getApplicationContext(), LocalServiceExample.class);
-//		remoteServiceIntent =  new Intent();
-//		remoteServiceIntent.setClassName("com.rtrk.service.remote", "com.rtrk.service.remote.RemoteServiceExample");
-		remoteServiceIntent = new Intent("com.rtrk.service.remote.REMOTE_SERVICE");
-	}
-	
-	public void startLocal(View view) {
-		Log.d(TAG, "startLocalService");
-		startService(localServiceIntent);
-	}
-	
-	public void stopLocal(View view) {
-		Log.d(TAG, "stopLocalService");
-		stopService(localServiceIntent);
-	}
-	
-	public void bindRemote(View view) {
-		Log.d(TAG, "bindRemote");
-		conn = new BinderServiceConnection();
-		bindService(remoteServiceIntent, conn, Context.BIND_AUTO_CREATE);
-	}
+    public void stopLocal(View view) {
+        Log.d(TAG, "stopLocalService");
+        stopService(mLocalServiceIntent);
+    }
 
-	public void invokeRemote(View view) {
-		Log.d(TAG, "invokeRemote");
-		try {
-			service.startMusic();
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
-	public void unbindRemote(View view) {
-		Log.d(TAG, "unbindRemote");
-		unbindService(conn);
-		conn = null;
-	}
+    public void bindRemote(View view) {
+        Log.d(TAG, "bindRemote");
+        mConn = new BinderServiceConnection();
+        bindService(mRemoteServiceIntent, mConn, Context.BIND_AUTO_CREATE);
+    }
 
-	class BinderServiceConnection implements ServiceConnection {
-		public static final String TAG = "BinderServiceConnection";
+    public void invokeRemote(View view) {
+        Log.d(TAG, "invokeRemote");
+        try {
+            mService.startMusic();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
 
-		public void onServiceConnected(ComponentName className,
-				IBinder boundService) {
-			service = IRemoteServiceExample.Stub
-					.asInterface((IBinder) boundService);
-			Log.d(TAG, "onServiceConnected");
-			try {
-				service.setMusicFinishedCallback(callback.asBinder()); 
-			} catch (DeadObjectException ex) {
-				Log.e(TAG, "DeadObjectException");
-			} catch (RemoteException e) {
-				e.printStackTrace();
-			}
-		}
+    public void unbindRemote(View view) {
+        Log.d(TAG, "unbindRemote");
+        unbindService(mConn);
+        mConn = null;
+    }
 
-		public void onServiceDisconnected(ComponentName className) {
-			service = null;
-			Log.d(TAG, "onServiceDisconnected");
-		}
-	};
-	
+    class BinderServiceConnection implements ServiceConnection {
+        public static final String TAG = "BinderServiceConnection";
 
-	private Handler handler = new Handler();
-	private ICallback.Stub callback = new ICallback.Stub() {
-		
-		@Override
-		public void notify(final String text) throws RemoteException {
-			Log.d(TAG, "notify(" + text + ")");
+        public void onServiceConnected(ComponentName className,
+                IBinder boundService) {
+            mService = IRemoteServiceExample.Stub
+                    .asInterface((IBinder) boundService);
+            Log.d(TAG, "onServiceConnected");
+            try {
+                mService.setMusicFinishedCallback(callback.asBinder());
+            } catch (DeadObjectException ex) {
+                Log.e(TAG, "DeadObjectException");
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        }
 
-			handler.post(new Runnable() {
-				public void run() {
-					Toast.makeText(getApplicationContext(), text,
-							Toast.LENGTH_LONG).show();
-				}
-			}); 			
-		}
-	};
+        public void onServiceDisconnected(ComponentName className) {
+            mService = null;
+            Log.d(TAG, "onServiceDisconnected");
+        }
+    };
+
+    private ICallback.Stub callback = new ICallback.Stub() {
+        @Override
+        public void notify(final String text) throws RemoteException {
+            Log.d(TAG, "notify(" + text + ")");
+            mHandler.post(new Runnable() {
+                public void run() {
+                    Toast.makeText(getApplicationContext(), text,
+                            Toast.LENGTH_LONG).show();
+                }
+            });
+        }
+    };
 }
