@@ -44,7 +44,7 @@ public class VideoViewExamplesActivity extends Activity {
             @Override
             public void onClick(View v) {
                 mVideo.setVideoURI(Uri
-                        .parse("http://www.pocketjourney.com/downloads/famous.3gp"));
+                        .parse("http://www.informatika.ftn.uns.ac.rs/MilanVidakovic/Android?action=AttachFile&amp;do=get&amp;target=famous.3gp"));
                 mVideo.setMediaController(new MediaController(
                         VideoViewExamplesActivity.this));
                 mVideo.start();
