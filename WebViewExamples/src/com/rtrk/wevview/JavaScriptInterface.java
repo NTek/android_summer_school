@@ -4,10 +4,10 @@ import android.content.Context;
 import android.widget.Toast;
 
 public class JavaScriptInterface {
-    Context mContext;
+    private Context mContext = null;
 
     /** Instantiate the interface and set the context */
-    JavaScriptInterface(Context c) {
+    public JavaScriptInterface(Context c) {
         mContext = c;
     }
 

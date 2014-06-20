@@ -14,79 +14,84 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class WebViewExamplesActivity extends Activity {
-    protected static final String TAG = "WebViewExample";
-	EditText edtUrl; 
-    WebView  web;
-    Button   btnGo;
-    JavaScriptInterface jsi;
+    private static final String TAG = "WebViewExample";
+    private EditText mUrl = null;
+    private WebView mWeb = null;
+    private Button mBtnGo = null;
+    private JavaScriptInterface mJavaScriptInterface = null;
 
-	/** Called when the activity is first created. */
+    /** Called when the activity is first created. */
     @SuppressLint("SetJavaScriptEnabled")
-	@Override
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        
-        edtUrl = (EditText)findViewById(R.id.edtUrl);
-        web = (WebView)findViewById(R.id.webView1);
-        WebSettings webSettings = web.getSettings();
-        // turn on JavaScript
+        mUrl = (EditText) findViewById(R.id.edtUrl);
+        mWeb = (WebView) findViewById(R.id.webView);
+        WebSettings webSettings = mWeb.getSettings();
+        /** Turn on JavaScript. */
         webSettings.setJavaScriptEnabled(true);
-        // add showToast() function from Java to be invoked: Android.showToast('asdf');
-        jsi = new JavaScriptInterface(getApplicationContext());
-        web.addJavascriptInterface(jsi, "myAndroid");
-               
-        // The WebView will handle all hyper links and URLs by using this WebViewClient
-        web.setWebViewClient(new WebViewClient() {
+        /**
+         * Add showToast() function from Java to be invoked:
+         * Android.showToast('asdf');.
+         */
+        mJavaScriptInterface = new JavaScriptInterface(getApplicationContext());
+        mWeb.addJavascriptInterface(mJavaScriptInterface, "myAndroid");
+        /**
+         * The WebView will handle all hyper links and URLs by using this
+         * WebViewClient.
+         */
+        mWeb.setWebViewClient(new WebViewClient() {
+            /** Callback when the page is going to be loaded. */
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                Log.d(getApplication().getClass().getName(), "LOADING URL: "
+                        + url);
+                /**
+                 * We don't want to load page that contains word 'Virus' in the
+                 * url.
+                 */
+                if (url.contains("Virus"))
+                    return true;
+                else
+                    return false;
+            }
 
-        	// callback when the page is going to be loaded
-        	@Override
-        	public boolean shouldOverrideUrlLoading(WebView view, String url) {
-        		Log.d(getApplication().getClass().getName(), "LOADING URL: " + url);
-            	// We don't want to load page that contains word 'Virus' in the url
-        		if (url.contains("Virus"))
-            		return true;
-        		else return false;
-        	}
-        	
-        	// callback when the page is loaded
-        	@Override
+            /** Callback when the page is loaded. */
+            @Override
             public void onPageFinished(WebView view, String url) {
-            	if (url.startsWith("http:") || url.startsWith("https:") ) {
-            		// put the URL in the address textview component 
-            		edtUrl.setText(url);
-            	}
+                if (url.startsWith("http:") || url.startsWith("https:")) {
+                    /** put the URL in the address textview component. */
+                    mUrl.setText(url);
+                }
             }
         });
-
-        // Load HTML from string
+        /** Load HTML from string. */
         String summary = "<html><body>Hello <b>World</b>.<input type=\"button\" value=\"Click here\" onClick=\"myAndroid.showToast('Hello Android!')\" /></body></html>";
-        web.loadData(summary, "text/html", "utf-8");
-        
-        btnGo = (Button)findViewById(R.id.btnGo);
-        btnGo.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				String url = edtUrl.getText().toString();
-				Log.d(TAG, "Loading from URL: " + url);
-				web.loadUrl(url);
-				
-			}
-		});
-        web.requestFocus();
+        mWeb.loadData(summary, "text/html", "utf-8");
+        mBtnGo = (Button) findViewById(R.id.btnGo);
+        mBtnGo.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = mUrl.getText().toString();
+                Log.d(TAG, "Loading from URL: " + url);
+                mWeb.loadUrl(url);
+            }
+        });
+        mWeb.requestFocus();
     }
-    
-    
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        // Check if the key event was the Back button and if there's history
-        if ((keyCode == KeyEvent.KEYCODE_BACK) && web.canGoBack()) {
-            web.goBack();
+        /** Check if the key event was the Back button and if there's history. */
+        if ((keyCode == KeyEvent.KEYCODE_BACK) && mWeb.canGoBack()) {
+            mWeb.goBack();
             return true;
         }
-        // If it wasn't the Back key or there's no web page history, use the default
-        // system behavior (probably exit the activity)
+        /**
+         * If it wasn't the Back key or there's no web page history, use the
+         * default system behavior (probably exit the activity).
+         */
         return super.onKeyDown(keyCode, event);
     }
 }
