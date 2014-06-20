@@ -12,15 +12,14 @@ public class SummerWeatherPocetnoActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        Button btnV1 = (Button)findViewById(R.id.btnV1);
+        Button btnV1 = (Button) findViewById(R.id.btnV1);
         btnV1.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent i = new Intent(SummerWeatherPocetnoActivity.this, com.rtrk.v1.SummerWeatherActivity.class);
-				startActivity(i);
-			}
-		});
-
-
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(SummerWeatherPocetnoActivity.this,
+                        com.rtrk.weather.SummerWeatherActivity.class);
+                startActivity(i);
+            }
+        });
     }
 }
