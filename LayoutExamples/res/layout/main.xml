@@ -1,15 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    >
-<TextView  
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content" android:text="@string/naslov"/>
-<Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/btnFrame" android:text="@string/frame"></Button>
-<Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/btnLinear" android:text="@string/linear"></Button>
-<Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/btnRelative" android:text="@string/relative"></Button>
-<Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/btnTable" android:text="@string/table"></Button>
-<Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/btnTab" android:text="@string/tab"></Button>
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/naslov"/>
+    <Button
+        android:id="@+id/btnFrame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/frame">
+    </Button>
+    <Button
+        android:id="@+id/btnLinear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/linear">
+    </Button>
+    <Button
+        android:id="@+id/btnRelative"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/relative">
+    </Button>
+    <Button
+        android:id="@+id/btnTable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/table">
+    </Button>
+    <Button
+        android:id="@+id/btnTab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tab">
+    </Button>
 </LinearLayout>

@@ -1,20 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent" android:layout_height="fill_parent">
-    <TextView android:id="@+id/textView" android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true" android:text="@string/relative_choose"/>
-    <RadioGroup android:id="@+id/radioGroupAlignMode"
-        android:layout_width="fill_parent" android:layout_height="wrap_content"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/relative_choose"/>
+    <RadioGroup
+        android:id="@+id/radioGroupAlignMode"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/textView">
-        <RadioButton android:id="@+id/left" android:text="@string/relative_option_left"/>
-        <RadioButton android:id="@+id/right" android:text="@string/relative_option_right"/>
-        <RadioButton android:id="@+id/center" android:text="@string/relative_option_center"/>
+        <RadioButton
+            android:id="@+id/left"
+            android:text="@string/relative_option_left"/>
+        <RadioButton
+            android:id="@+id/right"
+            android:text="@string/relative_option_right"/>
+        <RadioButton
+            android:id="@+id/center"
+            android:text="@string/relative_option_center"/>
     </RadioGroup>
-    <Button android:id="@+id/ok" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" android:layout_alignLeft="@id/radioGroupAlignMode"
-        android:layout_below="@id/radioGroupAlignMode" android:text="@string/relative_btnOk"/>
-    <Button android:id="@+id/cancel" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" android:layout_toRightOf="@id/ok"
-        android:layout_alignTop="@id/ok" android:layout_alignRight="@id/radioGroupAlignMode"
-        android:layout_below="@id/radioGroupAlignMode" android:text="@string/relative_btnCancel"/>
+    <Button
+        android:id="@+id/ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/radioGroupAlignMode"
+        android:layout_below="@id/radioGroupAlignMode"
+        android:text="@string/relative_btnOk"/>
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/radioGroupAlignMode"
+        android:layout_alignTop="@id/ok"
+        android:layout_below="@id/radioGroupAlignMode"
+        android:layout_toRightOf="@id/ok"
+        android:text="@string/relative_btnCancel"/>
 </RelativeLayout>

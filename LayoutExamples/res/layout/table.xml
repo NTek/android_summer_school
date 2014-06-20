@@ -3,92 +3,66 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:stretchColumns="1">
-
     <TableRow>
-
         <TextView
             android:layout_column="1"
             android:padding="3dip"
-            android:text="@string/table_open" />
-
+            android:text="@string/table_open"/>
         <TextView
             android:gravity="right"
             android:padding="3dip"
-            android:text="@string/table_ctrl_o" />
-
+            android:text="@string/table_ctrl_o"/>
     </TableRow>
-
     <TableRow>
-
         <TextView
             android:layout_column="1"
             android:padding="3dip"
-            android:text="@string/table_save" />
-
+            android:text="@string/table_save"/>
         <TextView
             android:gravity="right"
             android:padding="3dip"
-            android:text="@string/table_ctrl_s" />
-
+            android:text="@string/table_ctrl_s"/>
     </TableRow>
-
     <TableRow>
-
         <TextView
             android:layout_column="1"
             android:padding="3dip"
-            android:text="@string/table_save_as" />
-
+            android:text="@string/table_save_as"/>
         <TextView
             android:gravity="right"
             android:padding="3dip"
-            android:text="@string/table_ctrl_shift_s" />
-
+            android:text="@string/table_ctrl_shift_s"/>
     </TableRow>
-
     <View
         android:layout_height="2dip"
-        android:background="#FF909090" />
-
+        android:background="#FF909090"/>
     <TableRow>
-
         <TextView
             android:padding="3dip"
-            android:text="@string/table_x" />
-
+            android:text="@string/table_x"/>
         <TextView
             android:padding="3dip"
-            android:text="@string/table_import" />
-
+            android:text="@string/table_import"/>
     </TableRow>
-
     <TableRow>
-
         <TextView
             android:padding="3dip"
-            android:text="@string/table_x" />
-
+            android:text="@string/table_x"/>
         <TextView
             android:padding="3dip"
-            android:text="@string/table_export" />
-
+            android:text="@string/table_export"/>
         <TextView
             android:gravity="right"
             android:padding="3dip"
-            android:text="@string/table_ctrl_e" />
-
+            android:text="@string/table_ctrl_e"/>
     </TableRow>
-
     <View
         android:layout_height="2dip"
-        android:background="#FF909090" />
-
+        android:background="#FF909090"/>
     <TableRow>
-
         <TextView
             android:layout_column="1"
             android:padding="3dip"
-            android:text="@string/table_quit" />
-
+            android:text="@string/table_quit"/>
     </TableRow>
 </TableLayout>

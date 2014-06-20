@@ -1,9 +1,9 @@
 package com.rtrk.linear;
 
-import com.rtrk.R;
-
 import android.app.Activity;
 import android.os.Bundle;
+
+import com.rtrk.R;
 
 public class LinearActivity extends Activity {
     /** Called when the activity is first created. */

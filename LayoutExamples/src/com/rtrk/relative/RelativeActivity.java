@@ -1,9 +1,9 @@
 package com.rtrk.relative;
 
-import com.rtrk.R;
-
 import android.app.Activity;
 import android.os.Bundle;
+
+import com.rtrk.R;
 
 public class RelativeActivity extends Activity {
     /** Called when the activity is first created. */
