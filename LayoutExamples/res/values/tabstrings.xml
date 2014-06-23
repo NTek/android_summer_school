@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <resources>
-        <string name="tabs_first_tab">First Tab</string>
-        <string name="tabs_second_tab">Second Tab</string>
-    </resources>
+<resources>
+    <string name="tabs_first_tab">First Tab</string>
+    <string name="tabs_second_tab">Second Tab</string>
+    <string name="fragment_first">First Fragment</string>
+    <string name="fragment_second">Second Fragment</string>
+</resources>
