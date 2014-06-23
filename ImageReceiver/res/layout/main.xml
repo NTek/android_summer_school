@@ -2,25 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
-
+    android:orientation="vertical">
     <TextView
         android:id="@+id/txtAddr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello" />
-
+        android:text="@string/hello"/>
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btnStart" android:onClick="startReceivingImage"/>
-
+        android:onClick="startReceivingImage"
+        android:text="@string/btnStart"/>
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_weight="0.65"
-        android:src="@drawable/ic_launcher" />
-
+        android:src="@drawable/ic_launcher"/>
 </LinearLayout>
