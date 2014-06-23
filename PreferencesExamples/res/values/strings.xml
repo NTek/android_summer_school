@@ -5,4 +5,8 @@
     <string name="btnLogin">Login</string>
     <string name="btnChangePreferences">Change preferences</string>
     <string name="app_name">PreferencesExamples</string>
+    <string name="prefs_title_user">User</string>
+    <string name="prefs_summary_user">Change User Settings.</string>
+    <string name="prefs_title_update">Updates</string>
+    <string name="prefs_summary_update">Change Updates Settings.</string>
 </resources>

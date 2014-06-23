@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
+    <header
+        android:fragment="com.rtrk.preferences.dialog.UserPreferenceFragment"
+        android:summary="@string/prefs_summary_user"
+        android:title="@string/prefs_title_user">
+    </header>
+    <header
+        android:fragment="com.rtrk.preferences.dialog.UpdatePreferenceFragment"
+        android:summary="@string/prefs_summary_update"
+        android:title="@string/prefs_title_update">
+    </header>
+</preference-headers>

@@ -1,15 +1,14 @@
 package com.rtrk.preferences.dialog;
 
-import android.os.Bundle;
 import android.preference.PreferenceActivity;
 
 import com.rtrk.preferences.R;
 
+import java.util.List;
+
 public class PreferencesDialog extends PreferenceActivity {
-    /** Called when the activity is first created. */
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.preferences);
+    public void onBuildHeaders(List<Header> target) {
+        loadHeadersFromResource(R.xml.preferences_headres, target);
     }
 }
